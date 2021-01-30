@@ -1,9 +1,6 @@
-*{
-    text-align: center;
-}
-
 nav{
     background-color: grey;
+    text-align: center;
 }
 
 .container{
@@ -18,12 +15,18 @@ nav{
     background-color: blue;
     width: 50%;
     height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .right{
     background-color: red;
     width: 25%;
     height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer{
@@ -31,4 +34,5 @@ footer{
     position: absolute;
     bottom: 0;
     width: 100%;
+    text-align: center;
 }
