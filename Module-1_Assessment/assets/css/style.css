@@ -17,6 +17,10 @@ html, body{
     margin-right: 15%;
 }
 
+#navbarItems{
+    z-index: 5;
+}
+
 .inner-container{
     position: relative;
     top: 20%;
@@ -28,7 +32,7 @@ html, body{
 }
 
 .my-hr{
-    border-top: 2px solid #dddddd;
+    border-top: 2px solid #666666;
     margin-top: 0px;
 }
 
@@ -118,3 +122,32 @@ html, body{
     color: #ffffff;
     margin: .5rem;
 }
+
+/*Media Queries*/
+@media (max-width: 992px) {
+    .inner-container{
+        width: 750px;
+        margin-top: 1%;
+    }
+
+}
+@media (max-width: 768px) {
+    .inner-container{
+        width: 550px;
+        margin-top: 3%;
+    }
+
+    .navbar-brand{
+        margin-left: 8%;
+    }
+}
+ @media (max-width: 576px) {
+    .inner-container{
+        width: 80%;
+        margin-top: 5%;
+    }
+    .navbar-brand{
+        margin-left: 5%;
+    }
+}
+  
