@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>downeys Module-2 Assesment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="jumbotron-flex d-flex justify-content-center" id="banner">
+        <h1>Hangmon</h1>
+    </div>
+    <div class="flex-container d-flex justify-content-center">
+        <div class="flex-container" id="game-frame">
+            <img class="img img-flex" id="backgroundImage" src="assets/images/frame.png">
+            <div class="flex-container d-flex" id="inner-frame">
+                <div class="flex-container" id="left-frame">
+                    <h3 class="h3">The monster hangman game.</h3>
+                </div>
+                <div class="flex-container game-container" id="right-frame">
+                    <h3 class="h3" id='messageBoard'>Press any key to get started!</h3>
+                    <h3 class="h3">Wins</h3>
+                    <h3 class="h3"><span id="wins"></span></h3>
+                    <h3 class="h3">Current word</h3>
+                    <h3 class="h3"><span id="currentWord"></span></h3>
+                    <h3 class="h3">Number of guesses remaining: </h3>
+                    <h3 class="h3"><span id="guessesLeft"></span></h3>
+                    <h3 class="h3">Letters already guessed:</h3>
+                    <h3 class="h3"><span id="lettersGuessed"></span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/javascript/jquery-3.5.1.js"></script>
+    <script src="assets/javascript/game.js"></script>
+</body>
+</html>
