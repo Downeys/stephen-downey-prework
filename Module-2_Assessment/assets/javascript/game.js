@@ -6,6 +6,33 @@ const soundEffect4 = new Audio("assets/sounds/monster-sound-4.wav");
 const soundEffect5 = new Audio("assets/sounds/monster-sound-5.wav");
 const randomSoundEffect = [soundEffect1, soundEffect2, soundEffect3, soundEffect4, soundEffect5];
 
+function playerWins(){
+    $('#left-frame').append(`<img class="img img-flex" src="assets/images/${game.currentWord}.png" id="monsterPic"/>`);
+    game.removeCurrentWord();
+    playRandomSoundEffect();
+    game.gameStatus= 'ready';
+}
+
+function playerLoses(){
+    $('#left-frame').append(`<img class="img img-flex" src="assets/images/${game.currentWord}.png" id="monsterPic"/>`);
+    game.removeCurrentWord();
+    playRandomSoundEffect();
+    game.gameStatus= 'ready';
+}
+
+function updateGameBoard(currentWord, wins, guessesLeft, lettersGuessed){
+    $('#messageBoard').text(game.gameMessage[game.gameStatus]);
+    $('#wins').text(wins);
+    $('#currentWord').text(game.formatCurrentWord(currentWord));
+    $('#guessesLeft').text(guessesLeft);
+    $('#lettersGuessed').text(lettersGuessed);
+}
+
+function playRandomSoundEffect(){
+    let randomIndex = Math.floor(Math.random()*randomSoundEffect.length);
+    randomSoundEffect[randomIndex].play();
+}
+
 let game = {
     gameStatus: 'ready',
     gameMessage: {'ready': 'Press any key to get started!', 'playing': 'Press any key to continue.', 'win': 'YOU WIN!! Press any key to play again!', 'lose': 'You lose. Press any key to play again!'},
@@ -139,20 +166,17 @@ let game = {
     },
 };
 
-
 $(document).keyup(function(event){
     
     let letters = /^[A-Za-z]+$/;
-    if(event.key.toString().match(letters)){
-        if (game.gameStatus == 'ready'){
-            game.initiateGame();
-            $('#monsterPic').remove();
-            bgSounds.play();
-        }else if(game.gameStatus == 'playing'){
-            game.gameLogic(event.key);
-        };
-        updateGameBoard(game.currentWord, game.wins, game.guessesLeft, game.lettersGuessed);      
-    }
+    if (game.gameStatus == 'ready'){
+        game.initiateGame();
+        $('#monsterPic').remove();
+        bgSounds.play();
+    }else if(game.gameStatus == 'playing' && event.key.toString().match(letters)){
+        game.gameLogic(event.key);
+    };
+    updateGameBoard(game.currentWord, game.wins, game.guessesLeft, game.lettersGuessed);      
     
     if(game.gameStatus == 'win'){
         playerWins();
@@ -161,30 +185,3 @@ $(document).keyup(function(event){
     };
     
 });
-
-function playerWins(){
-    $('#left-frame').append(`<img class="img img-flex" src="assets/images/${game.currentWord}.png" id="monsterPic"/>`);
-    game.removeCurrentWord();
-    playRandomSoundEffect();
-    game.gameStatus= 'ready';
-}
-
-function playerLoses(){
-    $('#left-frame').append(`<img class="img img-flex" src="assets/images/${game.currentWord}.png" id="monsterPic"/>`);
-    game.removeCurrentWord();
-    playRandomSoundEffect();
-    game.gameStatus= 'ready';
-}
-
-function updateGameBoard(currentWord, wins, guessesLeft, lettersGuessed){
-    $('#messageBoard').text(game.gameMessage[game.gameStatus]);
-    $('#wins').text(wins);
-    $('#currentWord').text(game.formatCurrentWord(currentWord));
-    $('#guessesLeft').text(guessesLeft);
-    $('#lettersGuessed').text(lettersGuessed);
-}
-
-function playRandomSoundEffect(){
-    let randomIndex = Math.floor(Math.random()*randomSoundEffect.length);
-    randomSoundEffect[randomIndex].play();
-}
